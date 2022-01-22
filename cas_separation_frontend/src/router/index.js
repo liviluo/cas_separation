@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router"
-const routerHistory = createWebHistory()
+
 const routers = [
   { path: "/", redirect: "/home" },
   {
@@ -8,18 +8,18 @@ const routers = [
   },
   {
     path: '/login',
-    component: () => import('@/views/login/index'),
+    component: () => import('@/views/auth/login'),
     hidden: true
   },
   {
-    path: '/free',
-    component: () => import('@/views/free/index'),
+    path: '/logout',
+    component: () => import('@/views/auth/logout'),
     hidden: true
   }
 ]
 
 const router = createRouter({
-  history: routerHistory,
+  history: createWebHistory(),
   routes: routers
 })
 
