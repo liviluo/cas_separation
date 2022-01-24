@@ -16,4 +16,9 @@ public class CasConfiguration extends CasClientConfigurerAdapter {
 		authenticationFilter.getInitParameters().put("authenticationRedirectStrategyClass",
 				"com.livi.separation.filter.CustomAuthenticationRedirectStrategy");
 	}
+
+	@Override
+	public void configureValidationFilter(FilterRegistrationBean validationFilter) {
+		validationFilter.getInitParameters().put("encodeServiceUrl", "false");
+	}
 }
