@@ -9,6 +9,9 @@ router.beforeEach((to, from, next) => {
     /* has token*/
     if (to.path === '/login') {
       next({ path: '/' })
+    } else if (to.path === '/logout') {
+      store.dispatch('LogOut');
+      next()
     } else {
       // 检查用户信息是否存在
       if (store.getters.account === '') {
